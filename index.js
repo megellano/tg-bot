@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const token = '7021506819:AAEvC0OnKlVn8m2mdcGZbJYFY0ARr6mr-ZQ';
 
-const webAppUrl = "https://rnolj-37-212-80-138.a.free.pinggy.link/";
+const webAppUrl = "http://bot.maz-manipulator.by/";
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
