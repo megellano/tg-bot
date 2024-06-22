@@ -92,7 +92,7 @@ bot.on('message', async (msg) => {
 });
 
 
-app.post('/web-data', async(req,res) =>{
+app.post('/web-data', async function(req,res){
 const {queryId, products, totalPrice} = req.body;
 try{
   await bot.answerWebAppQuery(queryId,{
@@ -102,9 +102,9 @@ try{
     input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
   })
   
-  return res.status(200).json([
+  return res.status(200).json(
     { name: "Brian" }
-  ]);
+  );
 
 }catch(e){
   // await bot.answerWebAppQuery(queryId,{
