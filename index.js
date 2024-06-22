@@ -75,12 +75,12 @@ app.post('/web-data', async(req,res) =>{
 
 const {queryId, products, totalPrice} = req.body;
 try{
-  await bot.answerWebAppQuery(queryId,{
-    type:'article',
-    id:queryId,
-    title: 'Успешная покупка',
-    input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
-  })
+  // await bot.answerWebAppQuery(queryId,{
+  //   type:'article',
+  //   id:queryId,
+  //   title: 'Успешная покупка',
+  //   input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
+  // })
   return res.status(200).json({
     type:'article',
     id:queryId,
@@ -89,12 +89,12 @@ try{
   });
 
 }catch(e){
-  await bot.answerWebAppQuery(queryId,{
-    type:'article',
-    id:queryId,
-    title: 'Ошибочка',
-    input_message_cntent:{message_text:e}
-  })
+  // await bot.answerWebAppQuery(queryId,{
+  //   type:'article',
+  //   id:queryId,
+  //   title: 'Ошибочка',
+  //   input_message_cntent:{message_text:e}
+  // })
   return res.status(500).json({});
 }
 })
