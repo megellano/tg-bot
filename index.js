@@ -10,6 +10,7 @@ const webAppUrl = "https://bot.maz-manipulator.by/";
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
+const domain1App = express();
 app.use(express.json());
 app.use(cors());
 app.use(vhost('botshop.maz-manipulator.by', domain1App));
