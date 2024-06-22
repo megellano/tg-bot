@@ -27,9 +27,9 @@ app.get('/users', function(req, res) {
   ]);
 });
 app.post('/user', function(req, res) {
-  res.json([
+  res.json(
     { name: "Brian" }
-  ]);
+  );
 });
 
 
