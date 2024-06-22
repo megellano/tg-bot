@@ -102,7 +102,7 @@ try{
     input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
   })
   
-  return res.status(200).json(
+  res.status(200).json(
     { queryId: queryId }
   );
 
