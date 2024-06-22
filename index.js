@@ -1,5 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
-var subdomain = require('express-subdomain');
+// var subdomain = require('express-subdomain');
 const express = require('express');
 // const vhost = require('vhost');
 const cors = require('cors');
@@ -27,11 +27,7 @@ router.get('/users', function(req, res) {
   ]);
 });
 
-app.use(subdomain('botshop', router));
 
-app.get('/', function(req, res) {
-  res.send('Homepage');
-});
 // app.use(vhost('botshop.maz-manipulator.by', domain1App));
 
 // Matches "/echo [whatever]"
@@ -90,7 +86,7 @@ bot.on('message', async (msg) => {
 
 });
 
-app.post('/web-data', async(req,res) =>{
+router.post('/web-data', async(req,res) =>{
       console.log('====================================');
       console.log(req,res);
       console.log('====================================');
@@ -125,7 +121,7 @@ try{
   }));
 }
 })
-app.get('/hi', async (req, res) => {
+router.get('/hi', async (req, res) => {
   return res.status(201).json(req);
  })
 const PORT = 8000;
