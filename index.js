@@ -26,6 +26,11 @@ app.get('/users', function(req, res) {
     { name: "Brian" }
   ]);
 });
+app.post('/users', function(req, res) {
+  res.json([
+    { name: "Brian" }
+  ]);
+});
 
 
 // app.use(vhost('botshop.maz-manipulator.by', domain1App));
