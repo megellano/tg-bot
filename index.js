@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
+const vhost = require('vhost');
 const cors = require('cors');
 
 
@@ -11,7 +12,7 @@ const bot = new TelegramBot(token, {polling: true});
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+app.use(vhost('botshop.maz-manipulator.by', domain1App));
 
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
