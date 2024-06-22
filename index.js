@@ -94,18 +94,16 @@ bot.on('message', async (msg) => {
 app.post('/web-data', async(req,res) =>{
 const {queryId, products, totalPrice} = req.body;
 try{
-  // await bot.answerWebAppQuery(queryId,{
-  //   type:'article',
-  //   id:queryId,
-  //   title: 'Успешная покупка',
-  //   input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
-  // })
-  
-  return res.status(200).json([{
+  await bot.answerWebAppQuery(queryId,{
     type:'article',
     id:queryId,
-    title: 'Успешная покупка'
-  }]);
+    title: 'Успешная покупка',
+    input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
+  })
+  
+  return res.status(200).json([
+    { name: "Brian" }
+  ]);
 
 }catch(e){
   // await bot.answerWebAppQuery(queryId,{
