@@ -87,9 +87,6 @@ bot.on('message', async (msg) => {
 });
 
 app.post('/web-data', async(req,res) =>{
-      console.log('====================================');
-      console.log(req,res);
-      console.log('====================================');
 const {queryId, products, totalPrice} = req.body;
 try{
   // await bot.answerWebAppQuery(queryId,{
@@ -99,12 +96,11 @@ try{
   //   input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
   // })
   
-  return res.status(200).json(JSON.stringify({
+  return res.status(200).json([{
     type:'article',
     id:queryId,
-    title: 'Успешная покупка',
-    input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
-  }));
+    title: 'Успешная покупка'
+  }]);
 
 }catch(e){
   // await bot.answerWebAppQuery(queryId,{
@@ -122,7 +118,7 @@ try{
 }
 })
 app.get('/hi', async (req, res) => {
-  return res.status(201).json(req);
+  return res.status(201).json([req);
  })
 const PORT = 8000;
 app.listen(PORT)
