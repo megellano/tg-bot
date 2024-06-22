@@ -81,7 +81,12 @@ try{
     title: 'Успешная покупка',
     input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
   })
-  return res.status(200).json({});
+  return res.status(200).json({
+    type:'article',
+    id:queryId,
+    title: 'Успешная покупка',
+    input_message_cntent:{message_text:'Поздравляю с покупкой, товар на сумму ' + totalPrice}
+  });
 
 }catch(e){
   await bot.answerWebAppQuery(queryId,{
