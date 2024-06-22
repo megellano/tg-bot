@@ -114,6 +114,7 @@ try{
   //   input_message_cntent:{message_text:e}
   // })
   return res.status(500).json(JSON.stringify({
+    err:e,
     type:'article',
     id:queryId,
     title: 'Успешная покупка',
