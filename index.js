@@ -26,7 +26,7 @@ app.get('/users', function(req, res) {
     { name: "Brian" }
   ]);
 });
-app.post('/users', function(req, res) {
+app.post('/user', function(req, res) {
   res.json([
     { name: "Brian" }
   ]);
