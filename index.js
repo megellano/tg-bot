@@ -17,11 +17,11 @@ var router = express.Router();
 app.use(express.json());
 app.use(cors());
 
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
   res.send('Welcome to our API!');
 });
 
-router.get('/users', function(req, res) {
+app.get('/users', function(req, res) {
   res.json([
     { name: "Brian" }
   ]);
@@ -86,7 +86,7 @@ bot.on('message', async (msg) => {
 
 });
 
-router.post('/web-data', async(req,res) =>{
+app.post('/web-data', async(req,res) =>{
       console.log('====================================');
       console.log(req,res);
       console.log('====================================');
@@ -121,7 +121,7 @@ try{
   }));
 }
 })
-router.get('/hi', async (req, res) => {
+app.get('/hi', async (req, res) => {
   return res.status(201).json(req);
  })
 const PORT = 8000;
