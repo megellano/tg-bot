@@ -72,7 +72,7 @@ bot.on('message', async (msg) => {
 });
 
 app.post('/web-data', async(req,res) =>{
- console.log('====================================');
+      console.log('====================================');
       console.log(req,res);
       console.log('====================================');
 const {queryId, products, totalPrice} = req.body;
@@ -107,7 +107,7 @@ try{
 }
 })
 app.get('/hi', async (req, res) => {
-  return res.status(201).json({});
+  return res.status(201).json(JSON.stringify(req));
  })
 const PORT = 8000;
 app.listen(PORT, ()=>console.log('Server Start ' + PORT))
