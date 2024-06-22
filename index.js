@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
+var subdomain = require('express-subdomain');
 const express = require('express');
-const vhost = require('vhost');
+// const vhost = require('vhost');
 const cors = require('cors');
 
 
@@ -8,12 +9,30 @@ const token = '7021506819:AAEvC0OnKlVn8m2mdcGZbJYFY0ARr6mr-ZQ';
 
 const webAppUrl = "https://bot.maz-manipulator.by/";
 
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(token, { polling: true });
+
 const app = express();
-const domain1App = express();
+// const domain1App = express();
+var router = express.Router();
 app.use(express.json());
 app.use(cors());
-app.use(vhost('botshop.maz-manipulator.by', domain1App));
+
+router.get('/', function(req, res) {
+  res.send('Welcome to our API!');
+});
+
+router.get('/users', function(req, res) {
+  res.json([
+    { name: "Brian" }
+  ]);
+});
+
+app.use(subdomain('botshop', router));
+
+app.get('/', function(req, res) {
+  res.send('Homepage');
+});
+// app.use(vhost('botshop.maz-manipulator.by', domain1App));
 
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
@@ -23,7 +42,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 
   const chatId = msg.chat.id;
   const resp = match[1]; // the captured "whatever"
-console.log(match, match[1], match[0]);
+ 
   // send back the matched "whatever" to the chat
   bot.sendMessage(chatId, resp);
 });
@@ -110,4 +129,4 @@ app.get('/hi', async (req, res) => {
   return res.status(201).json(req);
  })
 const PORT = 8000;
-app.listen(PORT, ()=>console.log('Server Start ' + PORT))
+app.listen(PORT)
