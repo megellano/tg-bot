@@ -118,7 +118,7 @@ try{
 }
 })
 app.get('/hi', async (req, res) => {
-  return res.status(201).json([req);
+  return res.status(201).json([req]);
  })
 const PORT = 8000;
 app.listen(PORT)
